@@ -1,5 +1,5 @@
 # shopify-theme-starter
 
-To start theme do all steps like in official docs: https://shopify.github.io/themekit/
+To start watch theme do all steps described in official docs: https://shopify.github.io/themekit/#configure-an-existing-theme
 
-To run sass run ```npm instal``` and ```gulp```
+Run ```npm instal gulp``` and ```gulp``` to start watch sass files
