@@ -1,0 +1,44 @@
+<section class="last-products">
+  <div class="grid-x grid-margin-x">
+    {% for product in collections.products | limit: "3" %}
+    <div class="cell small-12 medium-4">
+      {{ section.settings.featured_product }}
+    </div>
+    <div class="cell small-12 medium-4">
+      {{ section.settings.featured_product2 }}
+    </div>
+    <div class="cell small-12 medium-4">
+      {{ section.settings.featured_product3 }}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name" : "Featured products",
+    "settings" : [
+      {
+        "type": "product",
+        "id": "featured_product",
+        "label": "Featured product"
+      },
+      {
+        "type": "product",
+        "id": "featured_product2",
+        "label": "Featured product"
+      },
+      {
+        "type": "product",
+        "id": "featured_product3",
+        "label": "Featured product"
+      }
+    ],
+    "presets": [
+      {
+        "category": "Dynamic Sections",
+        "name":"Featured products"
+      }
+    ]
+  }
+{% endschema %}

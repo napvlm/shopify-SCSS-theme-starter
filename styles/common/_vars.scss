@@ -1,0 +1,20 @@
+
+// colors
+$black: #030303;
+$white: #f4f4f4;
+
+$primary-color: $black;
+
+
+// Typography
+$primary-font-family: 'Space Mono', monospace;
+$primary-font-color: $black;
+$headings-font-family: $primary-font-family;
+
+// Utility
+$max-width: 1140; //no units
+$base-padding: rem-calc(100);
+$base-margin: rem-calc(100);
+$module-margin: rem-calc(30);
+$module-padding: rem-calc(30);
+$outer-bg-color: $white;

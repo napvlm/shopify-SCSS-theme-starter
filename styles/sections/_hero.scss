@@ -1,0 +1,43 @@
+section.hero-unit {
+  background-color: #3A2511;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $white;
+  position: relative;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.38);
+  }
+
+  .grid-container {
+    margin-top: auto;
+    margin-bottom: 200px;
+    width: 100%;
+  }
+
+
+h2.headline {
+  @include responsive-type(24, 18);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+
+.text p {
+  font-weight: 400;
+  color: $white;
+  @include responsive-type(18, 14);
+  letter-spacing: 0.04em;
+  max-width: 800px;
+}
+
+  .button {
+    margin-top: 20px;
+    width: 290px;
+  }
+}

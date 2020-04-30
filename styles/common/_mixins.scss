@@ -1,0 +1,402 @@
+// Mixins
+
+@mixin responsive-padding($direction: 'vert', $large: $base-padding, $base : 0.2, $important: 'false') {
+  //by default we have: 
+  //20% decrease for medium
+  //10% descrease of medium for small if we didn't specify the small value 
+
+  $medium: $large - ($large * $base);
+  $small: $medium - ($medium * 0.1);
+
+  @if($base==0) {
+      $medium: $large;
+      $small: $large;
+  }
+
+  @if($important=='false') {
+      @if $direction=='top' {
+          padding-top: rem-calc($small);
+
+          @include breakpoint(medium) {
+              padding-top: rem-calc($medium);
+          }
+
+          @include breakpoint(large) {
+              padding-top: rem-calc($large);
+          }
+      }
+
+      @else if $direction=='bottom' {
+          padding-bottom: rem-calc($small);
+
+          @include breakpoint(medium) {
+              padding-bottom: rem-calc($medium);
+          }
+
+          @include breakpoint(large) {
+              padding-bottom: rem-calc($large);
+          }
+      }
+
+      @else if $direction=='vert' {
+          padding-bottom: rem-calc($small);
+          padding-top: rem-calc($small);
+
+          @include breakpoint(medium) {
+              padding-bottom: rem-calc($medium);
+              padding-top: rem-calc($medium);
+          }
+
+          @include breakpoint(large) {
+              padding-bottom: rem-calc($large);
+              padding-top: rem-calc($large);
+          }
+      }
+
+      @else if $direction=='horz' {
+          padding-left: rem-calc($small);
+          padding-right: rem-calc($small);
+
+          @include breakpoint(medium) {
+              padding-left: rem-calc($medium);
+              padding-right: rem-calc($medium);
+          }
+
+          @include breakpoint(large) {
+              padding-left: rem-calc($large);
+              padding-right: rem-calc($large);
+          }
+      }
+
+      @else if $direction=='all' {
+          padding: rem-calc($small);
+
+          @include breakpoint(medium) {
+              padding: rem-calc($medium);
+          }
+
+          @include breakpoint(large) {
+              padding: rem-calc($large);
+          }
+      }
+  }
+
+  @if($important=='true') {
+      @if $direction=='top' {
+          padding-top: rem-calc($small) !important;
+
+          @include breakpoint(medium) {
+              padding-top: rem-calc($medium) !important;
+          }
+
+          @include breakpoint(large) {
+              padding-top: rem-calc($large) !important;
+          }
+      }
+
+      @else if $direction=='bottom' {
+          padding-bottom: rem-calc($small) !important;
+
+          @include breakpoint(medium) {
+              padding-bottom: rem-calc($medium) !important;
+          }
+
+          @include breakpoint(large) {
+              padding-bottom: rem-calc($large) !important;
+          }
+      }
+
+      @else if $direction=='vert' {
+          padding-bottom: rem-calc($small) !important;
+          padding-top: rem-calc($small) !important;
+
+          @include breakpoint(medium) {
+              padding-bottom: rem-calc($medium) !important;
+              padding-top: rem-calc($medium) !important;
+          }
+
+          @include breakpoint(large) {
+              padding-bottom: rem-calc($large) !important;
+              padding-top: rem-calc($large) !important;
+          }
+      }
+
+      @else if $direction=='horz' {
+          padding-left: rem-calc($small) !important;
+          padding-right: rem-calc($small) !important;
+
+          @include breakpoint(medium) {
+              padding-left: rem-calc($medium) !important;
+              padding-right: rem-calc($medium) !important;
+          }
+
+          @include breakpoint(large) {
+              padding-left: rem-calc($large) !important;
+              padding-right: rem-calc($large) !important;
+          }
+      }
+
+      @else if $direction=='all' {
+          padding: rem-calc($small) !important;
+
+          @include breakpoint(medium) {
+              padding: rem-calc($medium) !important;
+          }
+
+          @include breakpoint(large) {
+              padding: rem-calc($large) !important;
+          }
+      }
+  }
+}
+
+
+@mixin responsive-margin($direction: 'vert', $large: $base-margin, $base : 0.2, $important: 'false') {
+  //by default we have: 
+  //20% decrease for medium
+  //10% descrease of medium for small if we didn't specify the small value 
+
+  $medium: $large - ($large * $base);
+  $small: $medium - ($medium * 0.1);
+
+  @if($base==0) {
+      $medium: $large;
+      $small: $large;
+  }
+
+  @if($important=='false') {
+      @if $direction=='top' {
+          margin-top: rem-calc($small);
+
+          @include breakpoint(medium) {
+              margin-top: rem-calc($medium);
+          }
+
+          @include breakpoint(large) {
+              margin-top: rem-calc($large);
+          }
+      }
+
+      @else if $direction=='bottom' {
+          margin-bottom: rem-calc($small);
+
+          @include breakpoint(medium) {
+              margin-bottom: rem-calc($medium);
+          }
+
+          @include breakpoint(large) {
+              margin-bottom: rem-calc($large);
+          }
+      }
+
+      @else if $direction=='vert' {
+          margin-bottom: rem-calc($small);
+          margin-top: rem-calc($small);
+
+          @include breakpoint(medium) {
+              margin-bottom: rem-calc($medium);
+              margin-top: rem-calc($medium);
+          }
+
+          @include breakpoint(large) {
+              margin-bottom: rem-calc($large);
+              margin-top: rem-calc($large);
+          }
+      }
+
+      @else if $direction=='horz' {
+          margin-left: rem-calc($small);
+          margin-right: rem-calc($small);
+
+          @include breakpoint(medium) {
+              margin-left: rem-calc($medium);
+              margin-right: rem-calc($medium);
+          }
+
+          @include breakpoint(large) {
+              margin-left: rem-calc($large);
+              margin-right: rem-calc($large);
+          }
+      }
+
+      @else if $direction=='all' {
+          margin: rem-calc($small);
+
+          @include breakpoint(medium) {
+              margin: rem-calc($medium);
+          }
+
+          @include breakpoint(large) {
+              margin: rem-calc($large);
+          }
+      }
+  }
+
+  @if($important=='true') {
+      @if $direction=='top' {
+          margin-top: rem-calc($small) !important;
+
+          @include breakpoint(medium) {
+              margin-top: rem-calc($medium) !important;
+          }
+
+          @include breakpoint(large) {
+              margin-top: rem-calc($large) !important;
+          }
+      }
+
+      @else if $direction=='bottom' {
+          margin-bottom: rem-calc($small) !important;
+
+          @include breakpoint(medium) {
+              margin-bottom: rem-calc($medium) !important;
+          }
+
+          @include breakpoint(large) {
+              margin-bottom: rem-calc($large) !important;
+          }
+      }
+
+      @else if $direction=='vert' {
+          margin-bottom: rem-calc($small) !important;
+          margin-top: rem-calc($small) !important;
+
+          @include breakpoint(medium) {
+              margin-bottom: rem-calc($medium) !important;
+              margin-top: rem-calc($medium) !important;
+          }
+
+          @include breakpoint(large) {
+              margin-bottom: rem-calc($large) !important;
+              margin-top: rem-calc($large) !important;
+          }
+      }
+
+      @else if $direction=='horz' {
+          margin-left: rem-calc($small) !important;
+          margin-right: rem-calc($small) !important;
+
+          @include breakpoint(medium) {
+              margin-left: rem-calc($medium) !important;
+              margin-right: rem-calc($medium) !important;
+          }
+
+          @include breakpoint(large) {
+              margin-left: rem-calc($large) !important;
+              margin-right: rem-calc($large) !important;
+          }
+      }
+
+      @else if $direction=='all' {
+          margin: rem-calc($small) !important;
+
+          @include breakpoint(medium) {
+              margin: rem-calc($medium) !important;
+          }
+
+          @include breakpoint(large) {
+              margin: rem-calc($large) !important;
+          }
+      }
+  }
+}
+
+
+@mixin match-gutter($spacing: 'padding') {
+  #{$spacing}-left: rem-calc($gutter-small/2);
+  #{$spacing}-right: rem-calc($gutter-small/2);
+
+  @include breakpoint(medium) {
+      #{$spacing}-left: rem-calc($gutter-medium/2);
+      #{$spacing}-right: rem-calc($gutter-mediun/2);
+  }
+}
+
+@mixin responsive-value($selector, $value, $negative: 'false', $base : 0.2) {
+  $medium: $value - ($value * $base);
+  $small: $medium - ($medium * 0.1);
+
+  @if ($negative !='true') {
+      #{$selector}: rem-calc($small);
+
+      @include breakpoint(medium) {
+          #{$selector}: rem-calc($medium);
+      }
+
+      @include breakpoint(large) {
+          #{$selector}: rem-calc($value);
+      }
+  }
+
+  @else {
+      #{$selector}: rem-calc(-$small);
+
+      @include breakpoint(medium) {
+          #{$selector}: rem-calc(-$medium);
+      }
+
+      @include breakpoint(large) {
+          #{$selector}: rem-calc(-$value);
+      }
+  }
+}
+
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin responsive-type($max-font-size, $min-font-size: ($max-font-size - ($max-font-size * 0.3)), $min-vw: 640px, $max-vw: 1170px) {
+  & {
+      $min-font-size: $min-font-size * 1px;
+
+      font-size: rem-calc($min-font-size);
+
+      @media screen and (min-width: $min-vw) {
+          font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+
+      @media screen and (min-width: $max-vw) {
+          font-size: rem-calc($max-font-size);
+      }
+  }
+}
+
+
+@mixin overlay() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin closeButton($color: $black) {
+  display: inline-block;
+  width: rem-calc(20);
+  height: rem-calc(20);
+  position: relative;
+
+  &:after,
+  &:before {
+      content: '';
+      display: block;
+      width: rem-calc(3);
+      height: 100%;
+      background: $color;
+      position: absolute;
+      left: rem-calc(8);
+      top: 0;
+      border-radius: rem-calc(3);
+  }
+
+  &:after {
+      transform: rotate(-45deg);
+  }
+
+  &:before {
+      transform: rotate(45deg);
+  }
+}

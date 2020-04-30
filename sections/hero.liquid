@@ -1,0 +1,58 @@
+<section class="hero-unit"
+  {% if section.settings.image %}
+  style="background-image: url('{{ section.settings.image | img_url: 'master' }}');"
+  {% endif %}
+  >
+  <div class="overlay"></div>
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x align-left">
+      <div class="cell">
+        <h2 class="headline"> {{ section.settings.heroUnitHeadline }} </h2>
+        <div class="text"> {{ section.settings.heroUnitText }} </div>
+        <a href="{{ section.settings.heroUnitButtonLink }}" class="button square"> {{ section.settings.heroUnitButtonText }} </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name" : "Hero Unit",
+    "settings" : [
+      {
+        "id" : "image",
+        "type" : "image_picker",
+        "label" : "Upload background image"
+      },
+      {
+        "id" : "heroUnitHeadline",
+        "type" : "text",
+        "label" : "heading",
+        "default" : "Title"
+      },
+      {
+        "id" : "heroUnitText",
+        "type" : "richtext",
+        "label" : "Add your text below",
+        "default" : "<p>Your text here</p>"
+      },
+      {
+        "id" : "heroUnitButtonText",
+        "type" : "text",
+        "label" : "button",
+        "default" : "Shop Collection"
+      },
+      {
+        "id" : "heroUnitButtonLink",
+        "type" : "url",
+        "label" : "link"
+      }
+    ],
+    "presets": [
+      {
+        "category": "Dynamic Sections",
+        "name":"Hero Unit"
+      }
+    ]
+  }
+{% endschema %}

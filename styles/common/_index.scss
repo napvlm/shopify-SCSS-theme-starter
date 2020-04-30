@@ -1,0 +1,46 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+
+  *,
+  *:before,
+  *:after {
+      box-sizing: inherit;
+  }
+}
+
+body {
+  font-family: $primary-font-family;
+  color: $primary-font-color;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+a {
+  // color: $primary-font-color;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover,
+  &:focus,
+  &:active {
+      // color: $primary-font-color;
+  }
+}
+
+.overlay {
+  @include overlay;
+  z-index: 0;
+}
+
+.grid-container  {
+  position: relative;
+  z-index: 1;
+}
