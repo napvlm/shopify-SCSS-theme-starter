@@ -400,3 +400,7 @@
       transform: rotate(45deg);
   }
 }
+
+@function shopify($setting) {
+    @return unquote('"{{ settings.' + $setting + ' }}"');
+}

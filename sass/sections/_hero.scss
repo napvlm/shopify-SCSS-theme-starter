@@ -11,7 +11,7 @@ section.hero-unit {
   flex-direction: column;
 
   .overlay {
-    background-color: rgba(0, 0, 0, 0.38);
+    background-color: rgba(0, 0, 0, 0.48);
   }
 
   .grid-container {
@@ -20,21 +20,17 @@ section.hero-unit {
     width: 100%;
   }
 
+  h2.headline {
+    margin-bottom: 0;
+  }
 
-h2.headline {
-  @include responsive-type(24, 18);
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-
-.text p {
-  font-weight: 400;
-  color: $white;
-  @include responsive-type(18, 14);
-  letter-spacing: 0.04em;
-  max-width: 800px;
-}
+  .text p {
+    font-weight: 400;
+    color: $white;
+    @include responsive-type(18, 14);
+    letter-spacing: 0.04em;
+    max-width: 800px;
+  }
 
   .button {
     margin-top: 20px;

@@ -21,6 +21,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
+  background: shopify(bg_color);
 }
 
 a {
@@ -43,4 +44,16 @@ a {
 .grid-container  {
   position: relative;
   z-index: 1;
+}
+
+h2.headline {
+  @include responsive-type(24, 18);
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+section {
+  padding-top: 100px;
+  padding-bottom: 100px;
 }

@@ -1,0 +1,61 @@
+{% assign recentProducts = collections.all.products | sort: 'published_at' | reverse %}
+
+<section class="new-arrivals" style="background-color: {{section.settings.bg_color}};">
+  
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x align-center">
+      {% if section.settings.section_headline != blank %}
+        <div class="cell small-11 medium-12">
+          <h2 class="headline">{{ section.settings.section_headline }}</h2>
+        </div>
+      {% endif %}
+        
+      {% for product in recentProducts limit:4 %}
+
+        <div class="cell small-11 medium-3 product-wrap">
+          <a href="{{ product.url | within: recentProducts }}">
+            <div class="product">
+              <a href="{{ product.url | within: recentProducts }}">
+                  <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+              </a>
+              <div class="price-tag">
+                  <a href="{{ product.url | within: recentProducts }}">{{ product.title }}</a>
+                  {{ product.price | money }}
+              </div>
+              {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+            </div>
+          </a>
+        </div>
+
+      {% else %}
+        <p>no matches</p>
+      {% endfor %}
+
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "New Arrivals",
+  "settings": [
+    {
+      "id" : "section_headline",
+      "type" : "text",
+      "label" : "Section Headline"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Custom Content",
+      "name":"New Arrivals"
+    }
+  ]
+}
+{% endschema %}

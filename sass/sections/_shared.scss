@@ -1,0 +1,32 @@
+.product-wrap {
+  margin-bottom: 40px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+
+  .price-tag {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    transition: opacity .3s;
+    color: $black;
+    @include responsive-type(18, 14);
+    margin-top: 1rem;
+    
+    a {
+      font-weight: 300;
+      color: $black;
+    }
+
+    @media (max-width: 419px) {
+      margin-left: 10px;
+    }
+
+  }
+}

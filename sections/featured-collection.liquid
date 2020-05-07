@@ -1,0 +1,75 @@
+
+{% assign collection = collections['featured-collection'] %}
+
+<section class="featured-collection" style="background-color: {{section.settings.bg_color}};">
+  
+{% paginate collection.products by {{section.settings.pagination}}%}
+
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x align-center">
+      {% if section.settings.section_headline != blank %}
+        <div class="cell small-11 medium-12">
+          <h2 class="headline">{{ section.settings.section_headline }}</h2>
+        </div>
+      {% endif %}
+        
+      {% for product in collection.products%}
+
+        <div class="cell small-11 medium-4 product-wrap">
+          <a href="{{ product.url | within: collection }}">
+            <div class="product">
+              <a href="{{ product.url | within: collection }}">
+                  <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+              </a>
+              <div class="price-tag">
+                <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                {{ product.price | money }}
+                {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+              </div>
+            </div>
+          </a>
+        </div>
+
+      {% else %}
+        <p>no matches</p>
+      {% endfor %}
+
+    </div>
+  </div>
+
+{% endpaginate %}
+
+</section>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": [
+    {
+      "id" : "section_headline",
+      "type" : "text",
+      "label" : "Section Headline"
+    },
+    {
+      "type":   "range",
+      "id":     "pagination",
+      "max":       9,
+      "min":       3,
+      "step":      3,
+      "label":     "Products per section",
+      "default":   3
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Custom Content",
+      "name":"Featured Collection"
+    }
+  ]
+}
+{% endschema %}

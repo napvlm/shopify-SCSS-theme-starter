@@ -21,6 +21,12 @@
         "id": "color_body_text",
         "label": "Body text",
         "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color",
+        "default": "#fefefe"
       }
     ]
   }

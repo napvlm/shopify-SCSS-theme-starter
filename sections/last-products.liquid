@@ -1,44 +1,22 @@
 <section class="last-products">
   <div class="grid-x grid-margin-x">
-    {% for product in collections.products | limit: "3" %}
-    <div class="cell small-12 medium-4">
-      {{ section.settings.featured_product }}
-    </div>
-    <div class="cell small-12 medium-4">
-      {{ section.settings.featured_product2 }}
-    </div>
-    <div class="cell small-12 medium-4">
-      {{ section.settings.featured_product3 }}
-    </div>
+      {% for product in collection.products limit:3 %}
+      <div>
+        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        {{ product.price | money }}
+        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+        <a href="{{ product.url | within: collection }}">
+          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+        </a>
+      </div>
     {% endfor %}
   </div>
 </section>
 
 {% schema %}
-  {
-    "name" : "Featured products",
-    "settings" : [
-      {
-        "type": "product",
-        "id": "featured_product",
-        "label": "Featured product"
-      },
-      {
-        "type": "product",
-        "id": "featured_product2",
-        "label": "Featured product"
-      },
-      {
-        "type": "product",
-        "id": "featured_product3",
-        "label": "Featured product"
-      }
-    ],
-    "presets": [
-      {
-        "category": "Dynamic Sections",
-        "name":"Featured products"
-      }
-    ]
-  }
+{
+  "settings": [
+    
+  ]
+}
 {% endschema %}

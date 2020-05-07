@@ -1,15 +1,24 @@
 <section class="hero-unit"
   {% if section.settings.image %}
-  style="background-image: url('{{ section.settings.image | img_url: 'master' }}');"
+    style="background-image: url('{{ section.settings.image | img_url: 'master' }}');"
   {% endif %}
   >
   <div class="overlay"></div>
   <div class="grid-container">
     <div class="grid-x grid-margin-x align-left">
       <div class="cell">
-        <h2 class="headline"> {{ section.settings.heroUnitHeadline }} </h2>
-        <div class="text"> {{ section.settings.heroUnitText }} </div>
-        <a href="{{ section.settings.heroUnitButtonLink }}" class="button square"> {{ section.settings.heroUnitButtonText }} </a>
+        
+        {% if section.settings.hero_unit_headline != blank %}
+          <h2 class="headline"> {{ section.settings.hero_unit_headline }} </h2>
+        {% endif %}
+
+        {% if section.settings.hero_unit_text != blank %}
+          <div class="text"> {{ section.settings.hero_unit_text }} </div>
+        {% endif %}
+
+        {% if section.settings.hero_unit_button_link != blank %}
+          <a href="{{ section.settings.hero_unit_button_link }}" class="button square"> {{ section.settings.hero_unit_button_text }} </a>
+        {% endif %}  
       </div>
     </div>
   </div>
@@ -25,25 +34,25 @@
         "label" : "Upload background image"
       },
       {
-        "id" : "heroUnitHeadline",
+        "id" : "hero_unit_headline",
         "type" : "text",
         "label" : "heading",
         "default" : "Title"
       },
       {
-        "id" : "heroUnitText",
+        "id" : "hero_unit_text",
         "type" : "richtext",
         "label" : "Add your text below",
         "default" : "<p>Your text here</p>"
       },
       {
-        "id" : "heroUnitButtonText",
+        "id" : "hero_unit_button_text",
         "type" : "text",
         "label" : "button",
-        "default" : "Shop Collection"
+        "default" : "Button Text"
       },
       {
-        "id" : "heroUnitButtonLink",
+        "id" : "hero_unit_button_link",
         "type" : "url",
         "label" : "link"
       }

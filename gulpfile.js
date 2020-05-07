@@ -6,7 +6,7 @@ var rename = require('gulp-rename');
 
 gulp.task('sass', function() {
   //root scss file (import all your partials into here)
-  return gulp.src('./styles/main.scss')
+  return gulp.src('./sass/main.scss')
       .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
       // add vendor prefixes
       .pipe(autoprefixer())
@@ -21,5 +21,5 @@ gulp.task('sass', function() {
 
 gulp.task('default', function() {
   // this assumes your sass is in a directory named styles
-  gulp.watch('./styles/**/*.scss', gulp.series('sass'));
+  gulp.watch('./sass/**/*.scss', gulp.series('sass'));
 });
