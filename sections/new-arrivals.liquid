@@ -16,7 +16,10 @@
           <a href="{{ product.url | within: recentProducts }}">
             <div class="product">
               <a href="{{ product.url | within: recentProducts }}">
-                  <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                <div class="image-swap">
+                  <img src="{{ product.featured_image.src | img_url: '600x600' }}" alt="{{ product.featured_image.alt | escape }}">
+                  <img class="hidden" src="{{ product.images[1] | img_url: '600x600' }}" alt="{{ product.images.last.alt | escape }}" />
+                </div>
               </a>
               <div class="price-tag">
                   <a href="{{ product.url | within: recentProducts }}">{{ product.title }}</a>

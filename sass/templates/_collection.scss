@@ -1,0 +1,26 @@
+.image-swap .hidden { 
+  display: block; 
+  visibility: visible;
+}
+
+.product:hover .image-swap img { 
+  opacity: 1; 
+}
+.image-swap { 
+  position: relative; 
+}
+
+.image-swap .hidden { 
+  position: absolute; 
+  z-index: -1;
+  top: 0; 
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;  
+}
+.image-swap:hover .hidden { 
+  z-index: 100000;
+  opacity: 1;    
+}

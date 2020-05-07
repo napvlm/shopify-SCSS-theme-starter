@@ -15,13 +15,13 @@
     justify-content: center;
     z-index: 1;
     transition: opacity .3s;
-    color: $black;
+    color: shopify(color_body_text);
     @include responsive-type(18, 14);
     margin-top: 1rem;
     
     a {
       font-weight: 300;
-      color: $black;
+      color: shopify(color_body_text);
     }
 
     @media (max-width: 419px) {
